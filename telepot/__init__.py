@@ -69,7 +69,7 @@ def _find_first_key(d, keys):
 
 
 all_content_types = [
-    'text', 'audio', 'document', 'game', 'photo', 'sticker', 'video', 'voice', 'video_note',
+    'text', 'audio', 'document', 'animation','game', 'photo', 'sticker', 'video', 'voice', 'video_note',
     'contact', 'location', 'venue', 'new_chat_member', 'left_chat_member', 'new_chat_title',
     'new_chat_photo',  'delete_chat_photo', 'group_chat_created', 'supergroup_chat_created',
     'channel_chat_created', 'migrate_to_chat_id', 'migrate_from_chat_id', 'pinned_message',
@@ -87,7 +87,7 @@ def glance(msg, flavor='chat', long=False):
     - short: (content_type, ``msg['chat']['type']``, ``msg['chat']['id']``)
     - long: (content_type, ``msg['chat']['type']``, ``msg['chat']['id']``, ``msg['date']``, ``msg['message_id']``)
 
-    *content_type* can be: ``text``, ``audio``, ``document``, ``game``, ``photo``, ``sticker``, ``video``, ``voice``,
+    *content_type* can be: ``text``, ``audio``, ``document``, ``animation``, ``game``, ``photo``, ``sticker``, ``video``, ``voice``,
     ``video_note``, ``contact``, ``location``, ``venue``, ``new_chat_member``, ``left_chat_member``, ``new_chat_title``,
     ``new_chat_photo``, ``delete_chat_photo``, ``group_chat_created``, ``supergroup_chat_created``,
     ``channel_chat_created``, ``migrate_to_chat_id``, ``migrate_from_chat_id``, ``pinned_message``,
@@ -568,6 +568,20 @@ class Bot(_BotBase):
         """
         p = _strip(locals(), more=['document'])
         return self._api_request_with_file('sendDocument', _rectify(p), 'document', document)
+
+    def sendAnimation(self, chat_id, animation,
+                     caption=None,
+                     parse_mode=None,
+                     disable_notification=None,
+                     reply_to_message_id=None,
+                     reply_markup=None):
+        """
+        See: https://core.telegram.org/bots/api#senddocument
+
+        :param animation: Same as ``photo`` in :meth:`telepot.Bot.sendPhoto`
+        """
+        p = _strip(locals(), more=['animation'])
+        return self._api_request_with_file('sendAnimation', _rectify(p), 'animation', animation)
 
     def sendVideo(self, chat_id, video,
                   duration=None,
