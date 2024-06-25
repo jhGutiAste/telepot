@@ -73,7 +73,7 @@
     - `setChatDescription()`
     - `pinChatMessage()`
     - `unpinChatMessage()`
-- Added parameter `until_date` to method `kickChatMember()`
+- Added parameter `until_date` to method `banChatMember()`
 - Added fields to namedtuple `Chat` and `ChatMember`
 - Added namedtuple `ChatPhoto`
 - Added exception `NotEnoughRightsError` to capture situations where the bot does
@@ -214,7 +214,7 @@ callback query are now possible.
     - Added a bunch of namedtuples to reflect new objects in Bot API
     - Added methods:
         - `sendVenue()`, `sendContact()`
-        - `kickChatMember()`, `unbanChatMember()`
+        - `banChatMember()`, `unbanChatMember()`
         - `answerCallbackQuery()`
         - `editMessageText()`, `editMessageCaption()`, `editMessageReplyMarkup()`
     - To `ChatContext`, added a property `administrator`

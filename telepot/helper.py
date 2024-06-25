@@ -93,13 +93,14 @@ class Sender(object):
     When you are dealing with a particular chat, it is tedious to have to supply
     the same ``chat_id`` every time to send a message, or to send anything.
 
-    This object is a proxy to a bot's ``send*`` and ``forwardMessage`` methods,
+    This object is a proxy to a bot's ``send*``, ``forwardMessage``  and ``copyMessage``methods,
     automatically fills in a fixed chat id for you. Available methods have
     identical signatures as those of the underlying bot, **except there is no need
     to supply the aforementioned** ``chat_id``:
 
     - :meth:`.Bot.sendMessage`
     - :meth:`.Bot.forwardMessage`
+    - :meth:`.Bot.copyMessage`
     - :meth:`.Bot.sendPhoto`
     - :meth:`.Bot.sendAudio`
     - :meth:`.Bot.sendDocument`
@@ -118,6 +119,7 @@ class Sender(object):
     def __init__(self, bot, chat_id):
         for method in ['sendMessage',
                        'forwardMessage',
+                       'copyMessage',
                        'sendPhoto',
                        'sendAudio',
                        'sendDocument',
@@ -147,7 +149,7 @@ class Administrator(object):
     identical signatures as those of the underlying bot, **except there is no need
     to supply the aforementioned** ``chat_id``:
 
-    - :meth:`.Bot.kickChatMember`
+    - :meth:`.Bot.banChatMember`
     - :meth:`.Bot.unbanChatMember`
     - :meth:`.Bot.restrictChatMember`
     - :meth:`.Bot.promoteChatMember`
@@ -168,7 +170,7 @@ class Administrator(object):
     """
 
     def __init__(self, bot, chat_id):
-        for method in ['kickChatMember',
+        for method in ['banChatMember',
                        'unbanChatMember',
                        'restrictChatMember',
                        'promoteChatMember',
@@ -522,6 +524,7 @@ class CallbackQueryCoordinator(object):
 
         send_methods = ['sendMessage',
                         'forwardMessage',
+                        'copyMessage',
                         'sendPhoto',
                         'sendAudio',
                         'sendDocument',

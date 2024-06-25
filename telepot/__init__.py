@@ -518,6 +518,12 @@ class Bot(_BotBase):
         p = _strip(locals())
         return self._api_request('forwardMessage', _rectify(p))
 
+    def copyMessage(self, chat_id, from_chat_id, message_id,
+                       disable_notification=None):
+        """ See: https://core.telegram.org/bots/api#copyMessage """
+        p = _strip(locals())
+        return self._api_request('copyMessage', _rectify(p))
+
     def sendPhoto(self, chat_id, photo,
                   caption=None,
                   parse_mode=None,
@@ -756,11 +762,11 @@ class Bot(_BotBase):
         p = _strip(locals())
         return self._api_request('getFile', _rectify(p))
 
-    def kickChatMember(self, chat_id, user_id,
+    def banChatMember(self, chat_id, user_id,
                        until_date=None):
-        """ See: https://core.telegram.org/bots/api#kickchatmember """
+        """ See: https://core.telegram.org/bots/api#banChatMember """
         p = _strip(locals())
-        return self._api_request('kickChatMember', _rectify(p))
+        return self._api_request('banChatMember', _rectify(p))
 
     def unbanChatMember(self, chat_id, user_id):
         """ See: https://core.telegram.org/bots/api#unbanchatmember """
