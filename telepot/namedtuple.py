@@ -479,6 +479,7 @@ Message = _create_class('Message', [
               _Field('invoice', constructor=Invoice),
               _Field('successful_payment', constructor=SuccessfulPayment),
               'connected_website',
+              'message_auto_delete_timer_changed'
           ])
 
 # incoming

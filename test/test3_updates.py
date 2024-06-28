@@ -60,7 +60,8 @@ def examine(result, type):
 expected_content_type = None
 content_type_iterator = iter([
     'text', 'voice', 'sticker', 'photo', 'audio' ,'document', 'video', 'contact', 'location',
-    'new_chat_member',  'new_chat_title', 'new_chat_photo',  'delete_chat_photo', 'left_chat_member'
+    'new_chat_member',  'new_chat_title', 'new_chat_photo',  'delete_chat_photo', 'left_chat_member', 
+    'message_auto_delete_timer_changed'
 ])
 
 def see_every_content_types(msg):

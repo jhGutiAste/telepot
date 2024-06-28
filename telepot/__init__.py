@@ -73,7 +73,21 @@ all_content_types = [
     'contact', 'location', 'venue', 'new_chat_member', 'left_chat_member', 'new_chat_title',
     'new_chat_photo',  'delete_chat_photo', 'group_chat_created', 'supergroup_chat_created',
     'channel_chat_created', 'migrate_to_chat_id', 'migrate_from_chat_id', 'pinned_message',
-    'new_chat_members', 'invoice', 'successful_payment'
+    'new_chat_members', 'invoice', 'successful_payment', 'message_auto_delete_timer_changed'
+]
+
+other_content_types = [
+    'message_thread_id', 'sender_chat', 'sender_boost_count', 'sender_business_bot', 
+    'business_connection_id', 'forward_origin', 'is_topic_message', 'is_automatic_forward', 
+    'reply_to_message', 'external_reply', 'quote', 'reply_to_story', 'via_bot', 'edit_date', 
+    'has_protected_content', 'is_from_offline', 'media_group_id', 'author_signature', 'entities', 
+    'link_preview_options', 'effect_id', 'story', 'caption_entities', 'show_caption_above_media', 
+    'has_media_spoiler', 'dice', 'users_shared', 'chat_shared', 'connected_website', 
+    'write_access_allowed', 'passport_data', 'proximity_alert_triggered', 'boost_added', 
+    'chat_background_set', 'forum_topic_created', 'forum_topic_edited', 'forum_topic_closed', 
+    'forum_topic_reopened', 'general_forum_topic_hidden', 'general_forum_topic_unhidden', 
+    'giveaway_created', 'giveaway', 'giveaway_winners', 'giveaway_completed', 'video_chat_scheduled', 
+    'video_chat_started', 'video_chat_ended', 'video_chat_participants_invited', 'web_app_data'
 ]
 
 def glance(msg, flavor='chat', long=False):
@@ -91,7 +105,7 @@ def glance(msg, flavor='chat', long=False):
     ``video_note``, ``contact``, ``location``, ``venue``, ``new_chat_member``, ``left_chat_member``, ``new_chat_title``,
     ``new_chat_photo``, ``delete_chat_photo``, ``group_chat_created``, ``supergroup_chat_created``,
     ``channel_chat_created``, ``migrate_to_chat_id``, ``migrate_from_chat_id``, ``pinned_message``,
-    ``new_chat_members``, ``invoice``, ``successful_payment``.
+    ``new_chat_members``, ``invoice``, ``successful_payment``, ``message_auto_delete_timer_changed``.
 
     When ``flavor`` is ``callback_query``
     (``msg`` being a `CallbackQuery <https://core.telegram.org/bots/api#callbackquery>`_ object):
