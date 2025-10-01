@@ -65,6 +65,7 @@ def _find_first_key(d, keys):
     for k in keys:
         if k in d:
             return k
+    return "undefined"
     raise KeyError('No suggested keys %s in %s' % (str(keys), str(d)))
 
 
@@ -136,11 +137,16 @@ def glance(msg, flavor='chat', long=False):
     """
     def gl_chat():
         content_type = _find_first_key(msg, all_content_types)
-
-        if long:
-            return content_type, msg['chat']['type'], msg['chat']['id'], msg['date'], msg['message_id']
+        if content_type == "undefined":
+            if long:
+                return content_type, msg['message']['chat']['type'], msg['message']['chat']['id'], msg['message']['date'], msg['message']['message_id']
+            else:
+                return content_type, msg['message']['chat']['type'], msg['message']['chat']['id']
         else:
-            return content_type, msg['chat']['type'], msg['chat']['id']
+            if long:
+                return content_type, msg['chat']['type'], msg['chat']['id'], msg['date'], msg['message_id']
+            else:
+                return content_type, msg['chat']['type'], msg['chat']['id']
 
     def gl_callback_query():
         return msg['id'], msg['from']['id'], msg['data']
